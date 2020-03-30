@@ -5,6 +5,53 @@
   <title>Task 2</title>
 </head>
 <body>
-  
+  <script>
+      var firstName = inputLine('Ваше имя?');
+      var lastName = inputLine('Ваша фамилия?');
+      var patronymic = inputLine('Ваше отчество?');
+      var age = inputNumber('Ваш возраст?');
+      var gender = confirm('ваш пол - мужской?');
+      var ageInDays = age * 360;
+      var ageAfter5Years = age + 5;
+
+      var fullName = lastName + ' ' + firstName + ' ' + patronymic;
+      var pension;
+      var genderString;
+
+      if (age > 60) {
+          pension = ' да';
+      } else {
+          pension = ' нет';
+      }
+
+      if (gender === true) {
+          genderString = ' мужской';
+      } else {
+          genderString = ' женский';
+      }
+
+      alert('ваше ФИО: ' + fullName + '\n' +
+          'ваш возраст в годах: ' + age + '\n' +
+          'ваш возраст в днях: ' + ageInDays + '\n' +
+          'через 5 лет вам будет: ' + ageAfter5Years + '\n' +
+          'ваш пол: ' + genderString + '\n' +
+          'вы на пенсии: ' + pension);
+
+      function inputLine(message) {
+          var line;
+          while(!line) {
+              line = prompt(message);
+          }
+          return line;
+      }
+
+      function inputNumber(message) {
+          var number;
+          while((!isFinite(number)) || (number <= 0)) {
+              number = prompt(message);
+          }
+          return +number;
+      }
+  </script>
 </body>
 </html>
