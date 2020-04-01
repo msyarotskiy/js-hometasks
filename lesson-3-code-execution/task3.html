@@ -5,6 +5,24 @@
   <title>Task 3</title>
 </head>
 <body>
-  
+  <script>
+      var arrayCalc = [];
+      var result = 0;
+
+      while (true) {
+          var numberS = prompt('Введите число');
+          var number = parseInt(numberS);
+          if ((!isFinite(number)) || (typeof number != "number")) {
+              break;
+          }
+          arrayCalc.push(number);
+      }
+
+      for (var key in arrayCalc) {
+          result = result + arrayCalc[key];
+      }
+
+      console.log('Результат суммы чисел: ' + result);
+  </script>
 </body>
 </html>
