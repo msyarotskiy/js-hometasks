@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 1</title>
+</head>
+<body>
+  <script>
+      function findVowels() {
+          var str = prompt("Введите строку!");
+          var count = 0;
+          var vowels = ['а', 'о', 'и', 'е', 'ё', 'э', 'ы', 'у', 'ю', 'я'];
+
+          for (var char of str.toLowerCase()) {
+              if (vowels.includes(char)) {
+                  count += 1;
+              }
+          }
+
+          return count;
+      }
+
+      console.log('Количество гласных в строке: ' + findVowels());
+  </script>
+</body>
+</html>
