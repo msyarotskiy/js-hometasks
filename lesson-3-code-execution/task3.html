@@ -8,14 +8,13 @@
   <script>
       var arrayCalc = [];
       var result = 0;
+      var number = 0;
 
-      while (true) {
-          var numberS = prompt('Введите число');
-          var number = parseInt(numberS);
-          if ((!isFinite(number)) || (typeof number != "number")) {
-              break;
+      while (number !== '' && !isNaN(number)) {
+          number = prompt('Введите число: ') || '';
+          if (number !== '' && !isNaN(number)) {
+              arrayCalc.push(Number(number));
           }
-          arrayCalc.push(number);
       }
 
       for (var key in arrayCalc) {
