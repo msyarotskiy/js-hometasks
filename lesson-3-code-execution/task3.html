@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 3</title>
+</head>
+<body>
+  <script>
+      var arrayCalc = [];
+      var result = 0;
+      var number = 0;
+
+      while (number !== '' && !isNaN(number)) {
+          number = prompt('Введите число: ') || '';
+          if (number !== '' && !isNaN(number)) {
+              arrayCalc.push(Number(number));
+          }
+      }
+
+      for (var key in arrayCalc) {
+          result = result + arrayCalc[key];
+      }
+
+      console.log('Результат суммы чисел: ' + result);
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 1</title>
+</head>
+<body>
+  <script>
+      var maxResult = 0;
+      var nameResult = '';
+      var tasksCompleted = {
+          'Anna': 29,
+          'Serg': 35,
+          'Elena': 1,
+          'Anton': 99
+      };
+
+      for (var key in tasksCompleted) {
+          if (maxResult < tasksCompleted[key]) {
+              maxResult = tasksCompleted[key];
+              nameResult = key;
+          }
+      }
+
+      console.log('Больше всего заданий выполнил ' + nameResult);
+  </script>
+</body>
+</html>
