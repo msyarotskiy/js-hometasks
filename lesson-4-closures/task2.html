@@ -5,6 +5,27 @@
   <title>Task 2</title>
 </head>
 <body>
-  
+  <script>
+      'use strict';
+
+      var obj = {
+          className: 'my menu menu'
+      };
+
+      function removeClass(obj, cls) {
+          var finalArrayNames = [];
+          var arrayNames = obj.className.split(' ');
+
+          for (var str of arrayNames) {
+              if (str !== cls) {
+                  finalArrayNames.push(str);
+              }
+          }
+          obj.className = finalArrayNames.join(' ');
+      }
+
+      removeClass(obj, 'menu');
+      console.log(obj.className);
+  </script>
 </body>
 </html>
