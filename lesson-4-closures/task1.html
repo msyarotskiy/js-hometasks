@@ -5,6 +5,29 @@
   <title>Task 1</title>
 </head>
 <body>
-  <script></script>
+  <script>
+      'use strict';
+
+      var lattice = '';
+      var size = 8;
+
+      for (var i = 0; i < size; i++) {
+          if (i % 2) {
+              lattice += drawLattice([' ', '#'], size);
+          } else {
+              lattice += drawLattice(['#', ' '], size);
+          }
+      }
+
+      function drawLattice(arraySymblols, size) {
+          var str = '';
+          for (var i = 0; i < size; i++) {
+              str += arraySymblols[i % 2];
+          }
+          return str + '\n';
+      }
+
+      console.log(lattice);
+  </script>
 </body>
 </html>
