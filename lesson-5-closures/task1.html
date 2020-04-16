@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 1</title>
+</head>
+<body>
+  <script>
+      'use strict';
+
+      var familyJohn = {
+          bills: [124, 48, 268, 180, 42],
+          tips: [],
+          calcTips: function () {
+              this.bills.forEach(bill => {
+                  if (bill < 50) {
+                      this.tips.push(bill * 0.2)
+                  } else if (bill >= 50 && bill <= 200) {
+                      this.tips.push(bill * 0.15)
+                  } else if (bill > 200) {
+                      this.tips.push(bill * 0.1)
+                  }
+              })
+          },
+          paids: [],
+          calcPaids: function () {
+              for (var i = 0; i < this.bills.length; i++) {
+                  this.paids.push(this.bills[i] + this.tips[i]);
+              }
+          }
+      };
+
+      familyJohn.calcTips();
+      familyJohn.calcPaids();
+
+      var familyMark = {
+          bills: [77, 375, 110, 45],
+          tips: [],
+          calcTips: function () {
+              this.bills.forEach(bill => {
+                  if (bill < 100) {
+                      this.tips.push(bill * 0.2)
+                  } else if (bill >= 100 && bill <= 300) {
+                      this.tips.push(bill * 0.1)
+                  } else if (bill > 300) {
+                      this.tips.push(bill * 0.25)
+                  }
+              });
+          },
+          paids: [],
+          calcPaids: function () {
+              for (var i = 0; i < this.bills.length; i++) {
+                  this.paids.push(this.bills[i] + this.tips[i]);
+              }
+              return this.paids;
+          }
+      };
+
+      familyMark.calcTips();
+      familyMark.calcPaids();
+
+      function calcAverage(array) {
+          var result = 0;
+          for (var i = 0; i < array.length; i++) {
+              result += array[i];
+          }
+          return result / array.length;
+      }
+
+      if (calcAverage(familyJohn.tips) > calcAverage(familyMark.tips)) {
+          console.log('John family paid the highest tips on average')
+      } else if (calcAverage(familyJohn.tips) < calcAverage(familyMark.tips)) {
+          console.log('Mark family paid the highest tips on average')
+      } else {
+          console.log('Tips on average are equal')
+      }
+  </script>
+</body>
+</html>
