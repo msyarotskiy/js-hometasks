@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 1</title>
+</head>
+<body>
+  <script>
+      'use strict';
+
+      (function () {
+          function Question(question, answers, correctAnswer) {
+              this.question = question;
+              this.answers = answers;
+              this.correctAnswer = correctAnswer;
+          }
+
+          Question.prototype.showQuestion = function () {
+              var strAnswers = '';
+              for (var i = 0; i < this.answers.length; i++) {
+                  strAnswers += i + 1 + ') ' + this.answers[i] + '\n';
+              }
+              alert(this.question + '\n' + strAnswers);
+          };
+
+          Question.prototype.checkAnswer = function (answer) {
+              if (answer === this.correctAnswer) {
+                  alert('Ответ верный!');
+              } else {
+                  alert('Ответ неверный!');
+              }
+          };
+
+          var question1 = new Question('Какая футбольная команда выйграла Лигу Чемпионов в 2019 году?',
+              ['Барселона', 'Ливерпуль', 'Бавария'],
+              2);
+
+          var question2 = new Question('Как называется устройство, устанавливаемое в метро для поочередного пропуска людей?',
+              ['Контролер', 'Турникет', 'Эскалатор', 'Парапет'],
+              2);
+
+          var question3 = new Question('Кто из этих людей основал автомобильную компанию "Форд моторс"?',
+              ['Генри Форд', 'Харрисон Форд', 'Джон Форд', 'Джеральд Форд'],
+              1);
+
+          var questions = [];
+          questions.push(question1);
+          questions.push(question2);
+          questions.push(question3);
+
+          var numberQuestion = Math.floor(Math.random() * questions.length);
+          questions[numberQuestion].showQuestion();
+
+          var answer = parseInt(prompt('Введите ваш ответ!'));
+          questions[numberQuestion].checkAnswer(answer);
+      }());
+  </script>
+</body>
+</html>
