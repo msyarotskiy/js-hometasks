@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 1</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <section>
+    <div>
+      <input type="button" class="add-value" value="ввод информации о напитке" onclick="addButtonClick()"/>
+    </div>
+    <div>
+      <input type="button" class="get-value" value="получение информации о напитке" onclick="getButtonClick()"/>
+    </div>
+    <div>
+      <input type="button" class="delete-value" value="удаление информации о напитке" onclick="deleteButtonClick()"/>
+    </div>
+    <div>
+      <input type="button" class="get-keys" value="перечень всех напитков" onclick="getKeysButtonClick()"/>
+    </div>
+  </section>
+  <script src="js/hashStorage.js"></script>
+  <script>
+      'use strict';
+
+      function addButtonClick() {
+          var drinkName = prompt('Введите название напитка:');
+          var drinkValue = {};
+          drinkValue.isAlcohol = confirm('Напиток алгогольный?') ? 'да' : 'нет';
+          drinkValue.recipe = prompt('Введите рецепт напитка: ');
+          drinkStorage.addValue(drinkName, drinkValue);
+      }
+
+      function getButtonClick() {
+          var drinkName = prompt('Введите название напитка:');
+          var value = drinkStorage.getValue(drinkName);
+          if (!value) {
+              console.log('Данный напиток в информационной базе не найден!');
+          } else {
+              console.log('Напиток: ' + drinkName);
+              console.log('Алкогольный: ' + value.isAlcohol);
+              console.log('Рецепт приготовления: ');
+              console.log(value.recipe);
+          }
+      }
+
+      function deleteButtonClick() {
+          var drinkName = prompt('Введите название напитка:');
+          if (!(drinkName in drinkStorage.drinks)) {
+              console.log('Данный напиток в информационной базе не найден!');
+          } else {
+              drinkStorage.deleteValue(drinkName);
+              console.log('Напиток ' + drinkName + ' удален из информационной базы.');
+          }
+      }
+
+      function getKeysButtonClick() {
+          var drinks = drinkStorage.getKeys();
+          if (!drinks) {
+              console.log('В информационной базе отсутствует информация о напитках!');
+              return;
+          }
+          console.log('В информационной базе имеется информация о следующих напитках:');
+          var counter = 1;
+          for (var i in drinks) {
+              console.log(counter++ + ' ' + drinks[i]);
+          }
+      }
+
+      var drinkStorage = new THashStorage();
+      drinkStorage.addValue('Маргарита', {isAlcohol: 'да', recipe: 'продукт, продукт... смешать...'});
+  </script>
+</body>
+</html>
