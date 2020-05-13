@@ -1,0 +1,7 @@
+#container {
+    margin: 0 auto;
+    height: 600px;
+    width: 800px;
+    background-color: #eef;
+    position: relative;
+}
