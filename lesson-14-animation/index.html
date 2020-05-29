@@ -3,8 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <title>Tennis</title>
+  <link rel="stylesheet" type="text/css" href='css/style.css'>
 </head>
 <body>
-  
+  <div class="interface" id="game-box">
+    <div class="game-top">
+      <button class="btn-top" id="start">старт!</button>
+      <button class="btn-top" id="new-game">новая игра</button>
+      <span id="score">0:0</span>
+      <span id="speed">скорость: 1</span>
+    </div>
+    <div class="racket-btn" id="btn-left">
+      <button class="play-btn" id="btn-lUp">&#x2191</button>
+      <button class="play-btn" id="btn-lDown">&#x2193</button>
+    </div>
+    <div class="game-field" id="field">
+      <div class="racket" id="racket-left"></div>
+      <div class="racket" id="racket-right"></div>
+      <div id="ball"></div>
+    </div>
+    <div class="racket-btn" id="btn-right">
+      <button class="play-btn" id="btn-rUp">&#x2191</button>
+      <button class="play-btn" id="btn-rDown">&#x2193</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
