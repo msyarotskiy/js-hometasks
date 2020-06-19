@@ -1,0 +1,24 @@
+#wrapper h1 {
+    text-align: center;
+}
+
+#wrapper div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: left;
+    height: 300px;
+    width: max-content;
+    margin: 0 auto;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.menu {
+    float: left;
+    margin-right: 30px;
+    width: max-content;
+    height: 300px;
+}
