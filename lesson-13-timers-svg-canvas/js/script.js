@@ -68,6 +68,20 @@
         var hourTipY = centerY + (radius - hourShift) * Math.sin(tHour);
         ctx.lineTo(hourTipX, hourTipY);
         ctx.stroke();
+
+        //цифровые часы
+        ctx.fillStyle = '#000';
+        ctx.font = 'normal ' + radius * 0.17 + 'px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(str0l(d.getHours(), 2) + ':' + str0l(d.getMinutes(), 2) + ':' + str0l(d.getSeconds(), 2), radius, radius * 0.45);
+    }
+
+    function str0l(val, len) {
+        var strVal = val.toString();
+        while (strVal.length < len)
+            strVal = '0' + strVal;
+        return strVal;
     }
 
     setInterval(function () {
